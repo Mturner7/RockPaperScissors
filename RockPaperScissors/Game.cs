@@ -97,7 +97,7 @@ namespace RockPaperScissors
                     playing = DifferentOpponent;
                 }
 
-                if(DifferentOpponent) // If the user chooses to continue with a different opponent, reset all stats
+                if (DifferentOpponent) // If the user chooses to continue with a different opponent, reset all stats
                 {
                     thePlayer.Wins = gameCount = ties = 0;
                     Opponent = ChooseOpponent();
