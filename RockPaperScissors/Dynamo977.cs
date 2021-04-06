@@ -6,7 +6,7 @@ namespace RockPaperScissors
 {
     class Dynamo977 : Player
     {
-        public static Random rand;
+        private static Random rand;
 
         public override Values GenerateRoShamBo()
         {
