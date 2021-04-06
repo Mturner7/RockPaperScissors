@@ -2,14 +2,15 @@
 
 namespace RockPaperScissors
 {
+    public enum Values
+    {
+        ROCK = 1,
+        PAPER = 2,
+        SCISSORS = 3
+    }
+
     abstract class Player
     {
-        public enum Values
-        {
-            ROCK = 1,
-            PAPER = 2,
-            SCISSORS = 3
-        }
 
         public int Wins { get; set; }
         public string Name { get; set; }

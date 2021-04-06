@@ -29,23 +29,24 @@ namespace RockPaperScissors
                 Console.Write("\nDo you want to play against Longyboywolfie98 or Dynamo977? (l/d): ");
                 input = Console.ReadLine().ToLower();
 
-                if (input == "l" || input == "longboywolfie98") return new Longboywolfie98();
+                if (input == "l" || input == "longboywolfie98") return new RockPlayer();
 
 
             } while ((input != "d" && input != "dynamo977"));
 
-            return new Dynamo977(new Random());
+            return new RandomPlayer(new Random());
         }
 
         private static bool CheckForWinner(Player thePlayer, Player Opponent)
         {
-            int playerChoice = (int)thePlayer.GenerateRoShamBo();
-            int oppChoice = (int)Opponent.GenerateRoShamBo();
+            Values playerChoice = thePlayer.GenerateRoShamBo();
+            Values oppChoice = Opponent.GenerateRoShamBo();
 
-            Console.WriteLine($"\n{Opponent.Name}'s Move: {((Player.Values)oppChoice)}");
-            Console.WriteLine($"{thePlayer.Name}'s Move: {((Player.Values)playerChoice)}\n");
+            Console.WriteLine($"\n{Opponent.Name}'s Move: {(oppChoice)}");
+            Console.WriteLine($"{thePlayer.Name}'s Move: {(playerChoice)}\n");
 
-            if ((oppChoice == 2 && playerChoice == 1) || (oppChoice == 3 && playerChoice == 2) || (oppChoice == 1 && playerChoice == 3))
+            if ((oppChoice == Values.ROCK && playerChoice == Values.SCISSORS) || (oppChoice == Values.PAPER && playerChoice == Values.ROCK) 
+                || (oppChoice == Values.SCISSORS && playerChoice == Values.PAPER))
             {
                 Opponent.Wins++;
                 Console.WriteLine($"{Opponent.Name} wins!");
