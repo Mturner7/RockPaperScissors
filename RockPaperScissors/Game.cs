@@ -40,10 +40,10 @@ namespace RockPaperScissors
 
         public static void PlayGame()
         {
-            int gameCount = 1;
+            int gameCount = 0;
             bool playing = true;
             
-            Console.WriteLine($"Welcome to Ro Sham Bo! (Game {gameCount})");
+            Console.WriteLine($"Welcome to Ro Sham Bo!");
 
             Console.Write("\nWhat's your name buckaroo? ");
             Human thePlayer = new Human(Console.ReadLine());
@@ -53,7 +53,7 @@ namespace RockPaperScissors
             while (playing)
             {
                 Console.Clear();
-                Console.WriteLine($"| Game: {gameCount} |");
+                Console.WriteLine($"| Game: {++gameCount} |");
                 Console.WriteLine($"| {thePlayer.Name}'s total wins: {thePlayer.Wins} |");
                 Console.WriteLine($"| {Opponent.Name}'s total wins: {Opponent.Wins} | \n");
 
@@ -62,8 +62,7 @@ namespace RockPaperScissors
 
                 Console.WriteLine();
                 Console.WriteLine($"{Opponent.Name}'s Move: {((Player.Values)oppChoice)}");
-                Console.WriteLine($"{thePlayer.Name}'s Move: {((Player.Values)playerChoice)}");
-                Console.WriteLine();
+                Console.WriteLine($"{thePlayer.Name}'s Move: {((Player.Values)playerChoice)}\n");
 
                 if ((oppChoice == 2 && playerChoice == 1) || (oppChoice == 3 && playerChoice == 2) || (oppChoice == 1 && playerChoice == 3))
                 {
